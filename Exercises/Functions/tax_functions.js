@@ -1,3 +1,4 @@
+"use strict"
 
 function getSocSecTax(grossPay) {
     let ssTax = (grossPay * 6.2)
