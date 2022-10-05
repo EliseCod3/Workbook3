@@ -8,3 +8,7 @@ window.onload = function() {
 function sayHello() {
     alert("Hello!");
 }
+
+//I believe it would be easier to just call the function through the html code
+
+//This is still useful, however
