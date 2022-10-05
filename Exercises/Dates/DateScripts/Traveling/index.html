@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Date</title>
+</head>
+<body>
+    <main>
+        <label for="date-Input"> Travel Date</label>
+        <input type="date" name="selectDate" id="date-Input" />
+    
+        <button onclick="displayExpectedDate()"; >Submit</button><br>
+        <p id="message"></p>
+    </main>
+
+
+    <script>
+        function displayExpectedDate() {
+            //Get the input box
+            const inputElement = document.getElementById("date-Input");
+            
+            //Get the value (Travel Date)
+            let travelDate = new Date(inputElement.value + `T00:00`);
+            
+            //now, todays date
+            let todaysDate = new Date();
+            
+            //calculate date difference
+            let msecPerDay = 1000 * 60 * 60 * 24;
+            let msecElapsed = todaysDate.getTime() - travelDate.getTime();
+            let dayDifference = msecElapsed / msecPerDay;
+            let numberOfDays = Math.abs(Math.round(dayDifference));
+
+            //get paragraph element
+            const outputMessage = document.getElementById("message");
+            let resultNumDays = `Your trip is in ${numberOfDays} days`;
+            //Set paragraph to days left
+            outputMessage.innerText = resultNumDays;
+
+        }
+
+    </script>
+</body>
+</html>
